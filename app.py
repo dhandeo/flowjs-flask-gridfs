@@ -14,7 +14,7 @@ def index():
 @app.route("/upload", methods=("get", "post"))
 def upload():
 
-    stri = "Got chunk: " + str(flask.request.form["flowChunkNumber"]) + " of " + str(flask.request.form["flowFilename"])
+    stri = "Got chunk: " + str(flask.request.form["flowChunkNumber"]) + " of " + str(flask.request.form["flowTotalChunks"])
     app.logger.error(stri)
 
     # app.logger.error(str(flask.request.files.keys()))

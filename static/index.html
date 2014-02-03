@@ -51,7 +51,7 @@
             target: '/upload',
             chunkSize: 1024*1024,
             testChunks: false,
-            simultaneousUploads : 1
+            simultaneousUploads : 5
           });
           // Flow.js isn't supported, fall back on a different method
           if (!r.support) {
