@@ -49,9 +49,21 @@
         (function () {
           var r = new Flow({
             target: '/upload',
+            //target: '/uploadit',
             chunkSize: 1024*1024,
+            generateUniqueIdentifier: function() {
+                var html;
+                $.ajax({
+                url: "/upload",
+                async: false,
+                success: function (data){
+                    html = data;
+                    }
+                });
+                return html.id;
+              },
             testChunks: false,
-            simultaneousUploads : 5
+            simultaneousUploads : 1
           });
           // Flow.js isn't supported, fall back on a different method
           if (!r.support) {

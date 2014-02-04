@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-from flask import Flask
 import gevent.wsgi
 import gevent.monkey
 import werkzeug.serving
 
 from app import app
 gevent.monkey.patch_all()
-app.debug = True
+app.config["DEBUG"] = True
+
 
 @werkzeug.serving.run_with_reloader
 def run_server():
